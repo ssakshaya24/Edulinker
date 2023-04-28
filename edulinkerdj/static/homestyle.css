@@ -1,0 +1,102 @@
+*{
+    font-family: 'Poppins',sans-serif;
+
+}
+body{
+    background-color: #f2d6ef;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding-right:10px;
+}
+ul{
+    list-style-type: none;
+    display:flex;
+}
+ul li{
+    padding:15px;
+    cursor:pointer;
+
+}
+
+ul li::after{
+    content: '';
+    width:0%;
+    height:2px;
+    background:#612566;
+    display:block;
+    margin:auto;
+    transition:0.5s;
+}
+
+ul li:hover::after{
+    width:100%;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 88vh;
+}
+.left{
+    display: flex;
+    align-items: center;
+
+
+
+}
+.right{
+    display: flex;
+    align-items: center;
+    
+
+}
+.content {
+    height:50vh;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding:1rem;
+}
+.content p{
+    line-height: 2.0;
+}
+
+.btn{
+    display:flex;
+    justify-content: space-between;   
+}
+
+.btn .pbtn , .fbtn
+{
+    background:#612566;
+    color:white;
+    padding:.6rem;
+    margin:1rem;
+    width:150px;
+    border: none;
+    border-radius: 10px;
+}
+.logo
+{
+    display: flex;
+    align-items: center;
+
+}
+
+.logo i {
+    padding: 5px;
+    font-size: 25px;
+}
+
+.teacherimg {
+    display: flex;
+    flex-direction: row; 
+}
+
+.teacherimg img{
+    width:40%;
+    margin: auto;
+}

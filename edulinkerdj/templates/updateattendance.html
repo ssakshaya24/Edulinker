@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendance Update</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link  rel="stylesheet" href="{% static 'login.css' %}">
+    <script src="https://kit.fontawesome.com/02dddd40d0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h1>Edulinker</h1>
+       </div>
+        <div class="navlinks">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+    
+    <div class="login-container">
+		<div class="login-form-container">
+			<h1>Add Absentees</h1>
+			<form method="post" action="#">
+				
+				<div class="input-container">
+					<i class="fas fa-lock"></i>
+					<input type="date" id="password" name="date" placeholder="Date" required>
+				</div>
+
+                <div class="input-container">
+					<i class="fas fa-user"></i>
+					<input type="text" id="username" name="rollno" placeholder="Roll Number" required>
+				</div>
+                
+				<input type="submit" value="Update">
+                                
+                                
+			</form>
+		</div>
+	</div>
+</body>
+</html>

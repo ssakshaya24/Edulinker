@@ -1,0 +1,211 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+    <script src="https://kit.fontawesome.com/02dddd40d0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+     <nav>
+        <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h1>Edulinker</h1>
+       </div>
+        <div class="navlinks">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </nav>    
+<!-- <%Class.forName("com.mysql.cj.jdbc.Driver");%>
+	<% 
+		// Initialize variables
+		String parentName = "";
+                String rollno = "";
+                String studentName = "";
+                String phnum = "";
+                String standard = "";
+                String section = "";
+                String address="";
+		String password = "";
+		String confirmPassword = "";
+                String pattern = "^[A-N]{1}+[AB]{1}+[0-9]{3}$";
+                Pattern regex = Pattern.compile(pattern);
+		String errorMessage = "";
+		boolean isError = false;
+                boolean inserted=false;
+
+		// Check if the form has been submitted
+		if(request.getMethod().equals("POST")) {
+			// Retrieve form data
+			parentName = request.getParameter("pname");
+                        rollno = request.getParameter("rollno");
+                        studentName = request.getParameter("sname");
+                        phnum = request.getParameter("ph_num");
+                        standard = request.getParameter("standard");
+                        section = request.getParameter("section");
+                        address = request.getParameter("address");
+			password = request.getParameter("password");
+			confirmPassword = request.getParameter("confirm_password");
+                        Matcher matcher = regex.matcher(rollno); -->
+                        
+			<!-- // Perform form validation
+			if(parentName.equals("")) {
+				isError = true;
+				errorMessage = "Please enter your username!";
+			}
+                        
+                        if(rollno.equals("")) {
+				isError = true;
+				errorMessage = "Please enter the Roll Number!";
+			}
+                        
+                        if(!matcher.matches())    
+                        {
+                            isError = true;
+                            errorMessage = "Please enter a valid Roll Number!";
+                        }
+                        
+                        if(studentName.equals("")) {
+				isError = true;
+				errorMessage = "Please enter the Student name!";
+			}
+                        
+                        
+                        if(standard.equals("")) {
+				isError = true;
+				errorMessage = "Please enter the class of the student!";
+			}
+                        
+                        
+                        if(section.equals("")) {
+				isError = true;
+				errorMessage = "Please enter the section!";
+			}
+                                                                     
+                        if(rollno.equals("")) {
+				isError = true;
+				errorMessage = "Please enter a valid Roll Number!";
+			} -->
+                        
+                        <!-- else if(phnum.equals("")|| phnum.length()!=10){
+                            isError = true;
+                            errorMessage = "Please enter a valid Phone Number!";
+                        }
+			else if(password.length()<8) {
+				isError = true;
+				errorMessage = "Please enter a strong password!";
+			}
+			else if(confirmPassword.equals("")) {
+				isError = true;
+				errorMessage = "Please confirm your password!";
+			}
+			else if(!password.equals(confirmPassword)) {
+				isError = true;
+				errorMessage = "The passwords do not match!";
+			}
+			
+			// If there are no errors, redirect to the success page
+			if(!isError) {
+//                              JOptionPane.showMessageDialog(null, "Successfully Registered!");        
+                                
+                                <!-- Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/edulinker?zeroDateTimeBehavior=CONVERT_TO_NULL","root","Akshaya_24");
+                                Statement st = con.createStatement();
+                                int i=st.executeUpdate("insert into parents(ParentName,RollNo,StudentName,PhoneNum,Standard,Section,Address,Password) values('"+parentName+"','"+rollno+"','"+studentName+"','"+phnum+"','"+standard+"','"+section+"','"+address+"','"+password+"')");
+                                inserted = true;
+			}
+                        
+
+
+		}
+	%>
+
+        <% if(inserted) { %>
+                            <div class="error">Registered Successfully!</div>
+                        <% } 
+        %>
+
+	<% if(isError) { %>
+		<div class="error"><%= errorMessage %></div>
+	<% } 
+        %> -->
+    
+   
+        
+    <div class="main">    
+    <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+            
+        <form method="POST" action="parentregister.jsp">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Parent Name</span>
+            <input type="text" name="pname" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Roll Number</span>
+            <input type="text" name="rollno" placeholder="Roll Number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Student Name</span>
+            <input type="text" name="sname" placeholder="Enter student name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="tel" name="ph_num" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Class</span>
+            <input type="text" name="standard" placeholder="Class" required>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" name="address" placeholder="Enter your address"required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" name="password" placeholder="Enter your password"  required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" name="confirm_password" placeholder="Confirm your password"  required>
+          </div>
+        </div>
+        <div class="section-details">
+          <input type="radio" name="section" value="A" id="dot-1">
+          <input type="radio" name="section" value="B"id="dot-2">
+          
+          <span class="section-title">Section</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="section" >A</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="section">B</span>
+          </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+        </div>
+            </div>
+    </div>
+
+                
+</body>  
+</html>
+
