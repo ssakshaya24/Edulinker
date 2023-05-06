@@ -34,7 +34,7 @@ class Parents(models.Model):
 #     is_student = models.BooleanField(default=True)
 
 class Teacher(models.Model):
-    tid=models.CharField(primary_key=True,max_length=3)
+    tid=models.AutoField(primary_key=True)
     teacherName=models.CharField(null=False,max_length=25)
     Class=models.CharField(max_length=2,null=False)
     section=models.CharField(max_length=1,null=False)
@@ -57,6 +57,8 @@ class ApplyLeave(models.Model):
     fromDate=models.DateField(null=False)
     toDate=models.DateField(null=False)
     reason = models.TextField()
+
+
 
 
 

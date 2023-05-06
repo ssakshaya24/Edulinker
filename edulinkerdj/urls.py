@@ -18,12 +18,19 @@ from django.urls import path
 from eduapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('updateattendance.html',views.updateAttendance,name="updateattendance.html"),
     path('',views.home,name="home"),
-    path('parentreg.html',views.parentreg,name="parentreg.html"),
-    path('parentlogin.html',views.parentlogin,name="parentlogin.html"),
-    
-    
+    path('parent_registration',views.parentreg,name="parentreg"),
+    path('parent_login',views.parentlogin,name="parentlogin"),
+    path('apply_leave',views.applyleave,name="applyleave"),
+    path('parent_home',views.parenthome,name="parenthome"),
+    path('teacherlogin',views.teacherlogin,name="teacherlogin"),
+    path('teacherreg',views.teacherreg,name="teacherreg"),
+    path('teacherhome',views.teacherhome,name="teacherhome"),
+    path('updateattendance',views.updateAttendance,name="updateattendance"),
+
+
+
+
     path('myview/', views.MyView.as_view())
 
 

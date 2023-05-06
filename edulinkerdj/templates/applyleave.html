@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leave Application</title>
+    <script src="{% static '/js/parent.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'leave.css' %}">
+
+</head>
+<body>
+	<nav>
+        <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h1>Edulinker</h1>
+       </div>
+        <div class="navlinks">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </nav>   
+	<div class="main">    
+		<div class="container" id="leave-container">
+		<div class="title">Apply Leave</div>
+		<div class="content">
+				
+			<form method="POST" action="">
+			  {% csrf_token %}
+			<div class="user-details">
+			  <div class="input-box">
+				<span class="details">Parent ID</span>
+				<input type="text" name="pid" id="pid" placeholder="Enter your name" required>
+			  </div>
+			  <div class="input-box">
+				<span class="details">Name</span>
+				<input type="text" name="name" id="name" placeholder="Student Name"  required>
+			  </div>
+			  <div class="input-box">
+				<span class="details">Roll Number</span>
+				<input type="text" name="roll_number" id="roll_number" placeholder="Roll Number"required>
+			  </div>
+			  <div class="input-box">
+				<span class="details">Class</span>
+				<input type="text" name="class" id="class" required>
+			  </div>
+			  <div class="section">
+			  <span class="section-title">Section</span>
+			  <div class="category">
+				<label for="dot-1">
+				<span class="dot one"></span>
+				<span class="section" >A</span>
+			  </label>
+			  <label for="dot-2">
+				<span class="dot two"></span>
+				<span class="section">B</span>
+			  </label>
+			  </div>
+			  </div>
+	
+			  <div class="input-box">
+				<span class="details">Leave type</span>
+				<label for="leave_type">Leave Type</label>
+    			<select id="leave_type" name="leave_type">
+      			<option value="medical">Medical Leave</option>
+      			<option value="onduty">On Duty</option>
+      			<option value="personal">Personal Leave</option>
+    			</select><br><br>
+			  </div>
+			  <div class="input-box">
+				<label for="reason">Reason</label><br>
+			  <textarea id="reason" name="reason" rows="5" cols="82"></textarea><br><br>
+			  </div>
+			  <div class="input-box">
+				<label for="start_date">Start Date</label>
+				<input type="date" id="start_date" name="start_date"><br><br>			  
+			</div>
+
+			  <div class="input-box">
+				<label for="end_date">End Date</label>
+				<input type="date" id="end_date" name="end_date"><br><br>			  
+			</div>
+			<div class="button">
+				<input type="submit" value="Submit" onclick="submitLeave()"> 
+				</div>
+			
+    		
+			
+		  </form>
+			</div>
+				</div>
+				</div>
+				
+		</div>
+	
+	
+					
+	</body>  
+	</html>

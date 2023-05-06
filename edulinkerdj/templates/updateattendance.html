@@ -30,8 +30,8 @@
     <div class="login-container">
 		<div class="login-form-container">
 			<h1>Add Absentees</h1>
-			<form method="post" action="#">
-				
+			<form method="post">
+				{% csrf_token %}
 				<div class="input-container">
 					<i class="fas fa-lock"></i>
 					<input type="date" id="password" name="date" placeholder="Date" required>

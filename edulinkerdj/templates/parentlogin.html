@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
 </head>
+
 <body>
     <nav>
         <div class="logo">
@@ -30,10 +30,11 @@
     <div class="login-container">
 		<div class="login-form-container">
 			<h1>Login</h1>
-			<form method="post" action="login-process.jsp">
+			<form method="POST">
+                {% csrf_token %}
 				<div class="input-container">
 					<i class="fas fa-user"></i>
-					<input type="text" id="username" name="rollno" placeholder="Roll Number" required>
+					<input type="text" id="rollno" name="roll" placeholder="Roll Number" required>
 				</div>
 				<div class="input-container">
 					<i class="fas fa-lock"></i>
@@ -42,7 +43,7 @@
 				<input type="submit" value="Login">
                                 
                                 <div class="reg-link">
-                                    <i>New User?</i><a href="parentregister.jsp" id="reg-now">Register Now</a>
+                                    <i>New User?</i><a href="{%url 'parentreg'%}" id="reg-now">Register Now</a>
                                 </div>
 			</form>
 		</div>

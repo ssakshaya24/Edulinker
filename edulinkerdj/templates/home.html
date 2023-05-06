@@ -38,12 +38,11 @@
                 <h3>Embark on a voyage of learning!</h3>
                 <p>Engaging all students in partnership with family and community to become informed, compassionate, global citizens.</p>
                    <div class="btn">
-                       <form method="POST" action="{% url 'parentlogin.html' %}">
-                            {% csrf_token %}
+                       <form action="{% url 'parentlogin' %}">
                            <button type="submit" class="pbtn">Parent</button>
                        </form>
                        
-                        <form method="POST" action="teacherlogin.html">
+                        <form action="{% url 'teacherlogin' %}">
                              <button type="submit" class="fbtn">Faculty</button>
                         </form>
                     </div>
