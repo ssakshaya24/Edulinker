@@ -22,11 +22,11 @@ def home(request):
     return render(request,'home.html')
 
 def parentlogin(request):
+        pcheck = Parents.objects.get(rollno=rollNumber)
     if(request.method=="POST"):
         rollNumber = request.POST["roll"]
         password = request.POST["password"]
 
-        pcheck = Parents.objects.get(rollno=rollNumber)
         if(password==pcheck.password):
             request.session['parentID']=pcheck.pid
             return redirect("parenthome")
@@ -106,7 +106,19 @@ def teacherhome(request):
     return render(request,'teacherhome.html')
 
 def updateAttendance(request):
-    return render(request,'updateattendance.html')
+    if(request.method=="POST"):
+        absentdate = request.POST['date']
+        absentrollno = request.POST['rollno']
+
+        ar = Parents.objects.get(rollno=absentrollno)
+        Attendance.objects.create(absentDate=absentdate,rollNo=ar)
+        print("successful")
+        return redirect("updateattendance")
+    else:
+         return render(request,'updateattendance.html')
+        
+
+   
 
     
 """ class MyView(APIView):
@@ -118,7 +130,5 @@ def updateAttendance(request):
         serializer = MySerializer(data)
         return Response(serializer.data)
  """
-
-
-def viewattendance(request):
+ def viewattendance(request):
     return render(request,'view_attendance.html')
