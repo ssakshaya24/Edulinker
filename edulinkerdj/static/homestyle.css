@@ -100,3 +100,41 @@ ul li:hover::after{
     width:40%;
     margin: auto;
 }
+
+#parenthmimg
+{
+    margin-top: 5%;
+}
+
+.parenthm-msg p
+{
+
+    font-style: normal;
+    position: relative;
+    top: var(--headingSize);
+    animation: .5s swift-up ease-in-out forwards;
+  }
+                         
+@keyframes swift-up {
+    to {
+      top: 0;
+    }
+  }
+
+  .table {
+  display: table;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+}
+.row {
+  display: table-row;
+}
+.cell {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 10px;
+}
+

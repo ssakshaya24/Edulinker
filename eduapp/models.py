@@ -9,7 +9,7 @@ from django.utils import timezone
 class Parents(models.Model):
     pid = models.AutoField(db_column='PID', primary_key=True)  # Field name made lowercase.
     parentname = models.CharField(db_column='ParentName', max_length=25, blank=True, null=True)  # Field name made lowercase.
-    rollno = models.CharField(db_column='RollNo', max_length=15, blank=True, null=True)  # Field name made lowercase.
+    rollno = models.CharField(db_column='RollNo', max_length=15, blank=True, null=True,unique=True)  # Field name made lowercase.
     studentname = models.CharField(db_column='StudentName', max_length=25, blank=True, null=True)  # Field name made lowercase.
     phonenum = models.BigIntegerField(db_column='PhoneNum', blank=True, null=True)  # Field name made lowercase.
     standard = models.CharField(db_column='Standard', max_length=3, blank=True, null=True)  # Field name made lowercase.

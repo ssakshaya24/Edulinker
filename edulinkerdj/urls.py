@@ -23,11 +23,11 @@ urlpatterns = [
     path('parent_login',views.parentlogin,name="parentlogin"),
     path('apply_leave',views.applyleave,name="applyleave"),
     path('parent_home',views.parenthome,name="parenthome"),
-    path('teacherlogin',views.teacherlogin,name="teacherlogin"),
-    path('teacherreg',views.teacherreg,name="teacherreg"),
-    path('teacherhome',views.teacherhome,name="teacherhome"),
-    path('updateattendance',views.updateAttendance,name="updateattendance")
-
+    path('teacher_login',views.teacherlogin,name="teacherlogin"),
+    path('teacher_reg',views.teacherreg,name="teacherreg"),
+    path('teacher_home',views.teacherhome,name="teacherhome"),
+    path('update_attendance',views.updateAttendance,name="updateattendance"),
+    path('view_attendance',views.viewattendance,name="viewattendance")
 
 
 

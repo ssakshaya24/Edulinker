@@ -8,10 +8,10 @@ from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
 from .models import *
 
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from eduapp.serializers import MySerializer
-from django.views.decorators.csrf import csrf_exempt
+# from rest_framework.response import Response
+# from rest_framework.views import APIView
+# from eduapp.serializers import MySerializer
+# from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -28,6 +28,7 @@ def parentlogin(request):
 
         pcheck = Parents.objects.get(rollno=rollNumber)
         if(password==pcheck.password):
+            request.session['parentID']=pcheck.pid
             return redirect("parenthome")
         else:
             return HttpResponse("Invalid Username or Password!")
@@ -35,7 +36,13 @@ def parentlogin(request):
         return render(request,'parentlogin.html')
     
 def parenthome(request):
-    return render(request,"parenthome.html")
+    pid = request.session['parentID']
+    parentdetail = Parents.objects.get(pid=pid)
+    pname=parentdetail.parentname
+
+
+
+    return render(request,"parenthome.html",locals())
 
 def parentreg(request):
     if(request.method=="POST"):
@@ -52,7 +59,6 @@ def parentreg(request):
     else:
         return render(request,'parentreg.html')
     
-
 def applyleave(request):
     if(request.method=="POST"):
         parentid = request.POST["pid"]
@@ -112,3 +118,7 @@ def updateAttendance(request):
         serializer = MySerializer(data)
         return Response(serializer.data)
  """
+
+
+def viewattendance(request):
+    return render(request,'view_attendance.html')
