@@ -8,10 +8,10 @@ from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
 from .models import *
 
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from eduapp.serializers import MySerializer
-from django.views.decorators.csrf import csrf_exempt
+# from rest_framework.response import Response
+# from rest_framework.views import APIView
+# from eduapp.serializers import MySerializer
+# from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -22,11 +22,11 @@ def home(request):
     return render(request,'home.html')
 
 def parentlogin(request):
+        pcheck = Parents.objects.get(rollno=rollNumber)
     if(request.method=="POST"):
         rollNumber = request.POST["roll"]
         password = request.POST["password"]
 
-        pcheck = Parents.objects.get(rollno=rollNumber)
         if(password==pcheck.password):
             return redirect("parenthome")
         else:
@@ -100,7 +100,19 @@ def teacherhome(request):
     return render(request,'teacherhome.html')
 
 def updateAttendance(request):
-    return render(request,'updateattendance.html')
+    if(request.method=="POST"):
+        absentdate = request.POST['date']
+        absentrollno = request.POST['rollno']
+
+        ar = Parents.objects.get(rollno=absentrollno)
+        Attendance.objects.create(absentDate=absentdate,rollNo=ar)
+        print("successful")
+        return redirect("updateattendance")
+    else:
+         return render(request,'updateattendance.html')
+        
+
+   
 
     
 """ class MyView(APIView):
