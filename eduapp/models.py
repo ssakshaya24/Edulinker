@@ -41,10 +41,9 @@ class Teacher(models.Model):
     password=models.CharField(null=False,max_length=25)
 
 class Attendance(models.Model):
-    rollNo = models.ForeignKey(Parents,on_delete=CASCADE)
     absentDate = models.DateField(null=False)
-    Class=models.CharField(max_length=2,null=False)
-    section=models.CharField(max_length=1,null=False)
+    rollNo = models.ForeignKey(Parents,on_delete=CASCADE)
+    
 
 class TeacherParent(models.Model):
     tid=models.ForeignKey(Teacher,on_delete=CASCADE)
@@ -57,6 +56,8 @@ class ApplyLeave(models.Model):
     fromDate=models.DateField(null=False)
     toDate=models.DateField(null=False)
     reason = models.TextField()
+
+ 
 
 
 
