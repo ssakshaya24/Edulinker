@@ -26,12 +26,12 @@ urlpatterns = [
     path('teacherlogin',views.teacherlogin,name="teacherlogin"),
     path('teacherreg',views.teacherreg,name="teacherreg"),
     path('teacherhome',views.teacherhome,name="teacherhome"),
-    path('updateattendance',views.updateAttendance,name="updateattendance"),
+    path('updateattendance',views.updateAttendance,name="updateattendance")
 
 
 
 
-    path('myview/', views.MyView.as_view())
+    #path('myview/', views.MyView.as_view())
 
 
 ]

@@ -103,7 +103,7 @@ def updateAttendance(request):
     return render(request,'updateattendance.html')
 
     
-class MyView(APIView):
+""" class MyView(APIView):
     def get(self, request):
         data = {
             'field1': 'Hello',
@@ -111,3 +111,4 @@ class MyView(APIView):
         }
         serializer = MySerializer(data)
         return Response(serializer.data)
+ """
