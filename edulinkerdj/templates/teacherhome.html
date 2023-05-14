@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Teacher-Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'teacherhome.css'%}">
@@ -23,10 +23,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
        </div>
         <div class="navlinks">
             <ul>
-                <li>Home</li>
-                <li>About Us</li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About Us</a></li>
                 <li><a href="{% url 'updateattendance' %}">Update Attendance</a></li>
-                <li>Update Result </li>
+                <li><a href="{% url 'updatetestresult' %}">Update Result</a> </li>
                 <li>Query </li>
 
             </ul>
@@ -34,7 +34,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
     </nav>
         
-        
+    <div class="uname-container">
+        <div class="uname-row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Welcome, {{ tname }}</h3>
+          </div>
+        </div>
+      </div>
         
         
         

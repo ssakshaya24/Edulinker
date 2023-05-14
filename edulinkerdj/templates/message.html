@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edulinker-Home</title>
+    <!-- <link rel="stylesheet" href="{% static 'homestyle.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'message.css' %}">
+    <script src="{% static 'js/message.js' %}"></script>
+
+
+
+    <script src="https://kit.fontawesome.com/02dddd40d0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h1>Edulinker</h1>
+       </div>
+        <div class="navlinks">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </nav>
+    <form method="post">
+        {% csrf_token %}
+    <div class="messaging-container">
+        <div class="messaging-header">
+          <h2>Chat</h2>
+        </div>
+        <div class="messaging-body">
+            {% for i in mesg %}
+          <ul class="message-list">
+            <!-- Messages will be dynamically added here -->
+            {{i.content}}
+          </ul>
+          {% endfor %}
+        </div>
+        <div class="messaging-footer">
+            
+          <input type="text" name="msg" id="message-input" placeholder="Type your message...">
+
+          <button id="send-button">Send</button>
+        
+        </div>
+      </div>
+    </form>
+    </body>
+    </html>

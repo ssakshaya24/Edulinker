@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Parent Home</title>
+        <title>View-Attendence</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'homestyle.css' %}">
@@ -30,20 +30,26 @@
         </div>
         
     </nav>
+    <div class="student-testdetails">
+           <h3><i>Name: {{ sname }} <br> Roll Number: {{ sroll }}</i></h3>
+    </div>
         
-       <div class="table">
+    <div class="table">
   <div class="row">
-    <div class="cell">Total Working Days</div>
-    <div class="cell">Number of days present</div>
     <div class="cell">Number of days absent</div>
+    <div class="cell">Number of days present</div>
     <div class="cell">Attendance Percentage</div>
+    <div class="cell">Total Working Days</div>
+    
+    
+    
 
   </div>
   <div class="row">
-    <div class="cell">Row 2, Cell 1</div>
-    <div class="cell">Row 2, Cell 2</div>
-    <div class="cell">Row 2, Cell 3</div>
-    <div class="cell">Row 2, Cell 4</div>
+    <div class="cell">{{ count }}</div>
+    <div class="cell">{{ presentday }}</div>
+    <div class="cell">{{percentage}}</div>
+    <div class="cell">120</div>
 
   </div>
 </div>

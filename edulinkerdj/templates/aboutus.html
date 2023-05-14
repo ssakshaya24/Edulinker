@@ -1,0 +1,62 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/02dddd40d0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'aboutUs.css' %}">
+    <title>About Us</title>
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h1>Edulinker</h1>
+       </div>
+        <div class="navlinks">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+            </ul>
+        </div>
+        
+    </nav>
+    </header>
+    <main>
+      <img src="{% static '/images/app_logo.jpg' %}" alt="Our Team">
+      <p>We are a team of dedicated professionals who are passionate about what we do. Our mission is to provide the best possible service to our clients, and to help them achieve their goals.</p>
+      <p>With years of experience in the industry, we have developed a deep understanding of the needs and challenges of our clients, and we are committed to providing them with the highest quality solutions.</p>
+      <h2>Our Team</h2>
+      <div class="team">
+        <!-- <div> -->
+        <img src="{% static 'images/founder.jpg' %}" alt="Team Member 1">
+          <h3>Dr.R Manavalan </h3>
+          <h4>Founder & CEO</h4>
+
+        <!-- </div> -->
+        <!-- <div>
+          <img src="{% static 'images/akshaya.jpg' %}" alt="Team Member 2">
+          <h3>Akshaya</h3>
+          <p>Technical Lead</p>
+        </div> 
+        <div>
+          <img src="{% static 'images/sneha.jpg' %}" alt="Team Member 3">
+          <h3>Jeyasneha</h3>
+          <p>Technical Lead</p>
+        </div> -->
+
+      </div>
+        
+    </main>
+    <footer>
+      <p>&copy; 2023 Edulinker</p>
+    </footer>
+  </body>
+</html>

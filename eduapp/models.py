@@ -12,7 +12,7 @@ class Parents(models.Model):
     rollno = models.CharField(db_column='RollNo', max_length=15, blank=True, null=True,unique=True)  # Field name made lowercase.
     studentname = models.CharField(db_column='StudentName', max_length=25, blank=True, null=True)  # Field name made lowercase.
     phonenum = models.BigIntegerField(db_column='PhoneNum', blank=True, null=True)  # Field name made lowercase.
-    standard = models.CharField(db_column='Standard', max_length=3, blank=True, null=True)  # Field name made lowercase.
+    standard = models.CharField(db_column='Standard', max_length=5, blank=True, null=True)  # Field name made lowercase.
     section = models.CharField(db_column='Section', max_length=2, blank=True, null=True)  # Field name made lowercase.
     address = models.CharField(db_column='Address', max_length=50, blank=True, null=True)  # Field name made lowercase.
     password = models.CharField(db_column='Password', max_length=25, blank=True, null=True)  # Field name made lowercase.
@@ -20,6 +20,10 @@ class Parents(models.Model):
     class Meta:
         managed = False
         db_table = 'parents'
+    
+
+
+    
 # class profile(models.Model):
 #     username = models.ForeignKey(NewUser,on_delete=CASCADE)
 #     workplace = models.CharField(max_length=30,null=True,blank=True)
@@ -36,13 +40,16 @@ class Parents(models.Model):
 class Teacher(models.Model):
     tid=models.AutoField(primary_key=True)
     teacherName=models.CharField(null=False,max_length=25)
-    Class=models.CharField(max_length=2,null=False)
+    Class=models.CharField(max_length=5,null=False)
     section=models.CharField(max_length=1,null=False)
     password=models.CharField(null=False,max_length=25)
 
-class Attendance(models.Model):
+
+class Absentees(models.Model):
     absentDate = models.DateField(null=False)
     rollNo = models.ForeignKey(Parents,on_delete=CASCADE)
+
+
     
 
 class TeacherParent(models.Model):
@@ -57,7 +64,25 @@ class ApplyLeave(models.Model):
     toDate=models.DateField(null=False)
     reason = models.TextField()
 
- 
+    def __str__ (self):
+        return self.reason
+
+class TestResults(models.Model):
+    rollNo=models.ForeignKey(Parents,on_delete=CASCADE,default="0")
+    tDate = models.DateField(null=False)
+    subject=models.CharField(max_length=30)
+    topic=models.CharField(max_length=30)
+    total=models.IntegerField()
+    score=models.IntegerField()
+
+    def __str__ (self):
+        return self.score
+
+class Message(models.Model):
+    sender = models.ForeignKey(Parents,on_delete=CASCADE)
+    receiver = models.ForeignKey(Teacher,on_delete=CASCADE)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
 
 
 

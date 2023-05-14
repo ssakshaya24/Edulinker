@@ -100,6 +100,12 @@ nav{
     justify-content: space-between;
     padding-right:10px;
 }
+
+li a{
+    text-decoration: none;
+    color: black;
+}
+
 ul{
     list-style-type: none;
     display:flex;
@@ -134,3 +140,31 @@ ul li:hover::after{
     padding: 5px;
     font-size: 25px;
 }
+
+#test-form
+{
+	width: 60%;
+}
+#test-date
+{
+	width: 15%;
+}
+.input-containers
+{
+	width:20%;
+	font-size: 18px;
+	margin-right: 10px;
+	color: #6a2370;
+	display: flex;
+	align-items: center;
+	background-color: #f9f9f9;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+#tdate
+{
+	font-size: 18px;
+}
+

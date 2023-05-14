@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Parent Home</title>
+        <title>View-TestResult</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'homestyle.css' %}">
@@ -22,28 +22,47 @@
             <ul>
                 <li>Home</li>
                 <li>About Us</li>
-                <li><a href="{% url 'viewattendance' %}">View Attendance</a></li>
-                <li ><a href="{% url 'viewtestresults' %}">View Result</a></li>
+                <li>View Attendance </li>
+                <li>View Result </li>
                 <li>Query </li>
 
             </ul>
         </div>
         
     </nav>
-        
+    <div class="test-content">
+    <div class="student-attendetails">    
        
-    <div class="uname-container">
-        <div class="uname-row">
-          <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> Welcome, {{ pname }}</h3>
-          </div>
-        </div>
-      </div>
+       <h3><i>Name: {{ name }}</i></h3>
+    </div>
+        
+    <table border="1">
+        <tr>
+          <th>Test Date</th>
+          <th>Subject</th>
+          <th>Topic</th>
+          <th>Secured Score</th>
+          <th>Total Score</th>
+          
+        </tr>
+        
+        {% for i in t %}
+        <tr>
+          <td>{{ i.tDate }}</td>
+          <td>{{ i.subject }}</td>
+          <td>{{ i.topic }}</td>
+          <td>{{ i.score }}</td>
+          <td>{{ i.total }}</td>
+        </tr>
+        {% endfor %} 
+   
+
+        </table>
+    </div>
         
         
         
-        <div class="teacherimg" id="parenthmimg" >
-            <img src="{% static '/images/Parent.svg' %}">
-        </div>
+        
+        
     </body>
 </html>

@@ -27,9 +27,12 @@ urlpatterns = [
     path('teacher_reg',views.teacherreg,name="teacherreg"),
     path('teacher_home',views.teacherhome,name="teacherhome"),
     path('update_attendance',views.updateAttendance,name="updateattendance"),
-    path('view_attendance',views.viewattendance,name="viewattendance")
-
-
+    path('view_attendance',views.viewattendance,name="viewattendance"),
+    path('about_us',views.aboutus,name="aboutus"),
+    path('updatetestresult',views.updatetestresult,name="updatetestresult"),
+    path('view_results',views.viewtestresults,name="viewtestresults"),
+    # path('query',views.query,name="query")
+    path('message',views.message,name="message")
 
     #path('myview/', views.MyView.as_view())
 

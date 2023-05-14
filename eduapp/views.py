@@ -1,12 +1,11 @@
 
-
-
-
-
-
 from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
 from .models import *
+
+from django.db.models import Count
+
+
 
 # from rest_framework.response import Response
 # from rest_framework.views import APIView
@@ -22,10 +21,10 @@ def home(request):
     return render(request,'home.html')
 
 def parentlogin(request):
-        pcheck = Parents.objects.get(rollno=rollNumber)
     if(request.method=="POST"):
         rollNumber = request.POST["roll"]
         password = request.POST["password"]
+        pcheck = Parents.objects.get(rollno=rollNumber)
 
         if(password==pcheck.password):
             request.session['parentID']=pcheck.pid
@@ -55,6 +54,9 @@ def parentreg(request):
         password = request.POST["password"]
         section = request.POST["section"]
         Parents.objects.create(parentname=parentName,rollno=rollNo,studentname=studentName,phonenum=phoneNumber,standard=standard,section=section,address=address,password=password)
+        teachert=Teacher.objects.get(Class=standard)
+        parentt=Parents.objects.last()
+        TeacherParent.objects.create(pid=parentt,tid=teachert)
         return redirect('parentlogin')
     else:
         return render(request,'parentreg.html')
@@ -79,6 +81,7 @@ def teacherlogin(request):
 
         tcheck = Teacher.objects.get(tid=teacherid)
         if(password == tcheck.password):
+            request.session['TeacherId']=tcheck.tid
             return redirect("teacherhome")
         else:
             return HttpResponse("Invalid username or password")
@@ -103,7 +106,11 @@ def teacherreg(request):
         return render(request,'teacherreg.html')
 
 def teacherhome(request):
-    return render(request,'teacherhome.html')
+    tid=request.session['TeacherId']
+    tchoose=Teacher.objects.get(tid=tid)
+    tname=tchoose.teacherName
+    print(tname)
+    return render(request,'teacherhome.html',locals())
 
 def updateAttendance(request):
     if(request.method=="POST"):
@@ -111,15 +118,85 @@ def updateAttendance(request):
         absentrollno = request.POST['rollno']
 
         ar = Parents.objects.get(rollno=absentrollno)
-        Attendance.objects.create(absentDate=absentdate,rollNo=ar)
+        Absentees.objects.create(absentDate=absentdate,rollNo=ar)
         print("successful")
         return redirect("updateattendance")
     else:
          return render(request,'updateattendance.html')
         
 
-   
+def viewattendance(request):
+    pid = request.session.get('parentID')
 
+    student=Parents.objects.get(pid=pid)
+    sname=student.studentname
+    sroll=student.rollno
+    count = Absentees.objects.filter(rollNo=pid).count()
+    presentday=120-count
+    percentage=round((presentday/120)*100,2)
+
+
+
+    return render(request,'view_attendance.html',locals())
+
+def aboutus(request):
+    return render(request,'aboutus.html')
+   
+def updatetestresult(request):
+    if(request.method=="POST"):
+        tdate=request.POST['tdate']
+        Rollno=request.POST['rollno']
+        subject=request.POST['subject']
+        topic=request.POST['topic']
+        total=request.POST['total']
+        mark=request.POST['mark']
+        ptuple=Parents.objects.get(rollno=Rollno)
+
+        TestResults.objects.create(rollNo=ptuple,tDate=tdate,subject=subject,topic=topic,total=total,score=mark)
+        return HttpResponse("Test Record Created")
+
+    return render(request,'updatetestresult.html')
+
+
+def viewtestresults(request):
+    pid=request.session['parentID']
+    # print(pid)
+    ptuple=Parents.objects.get(pid=pid)
+    sroll=ptuple.pid
+    sname=ptuple.studentname
+    Testdetails=TestResults.objects.filter(rollNo=sroll)
+    # print(Testdetails)
+    d={"t":Testdetails,"roll":sroll,"name":sname}
+    return render(request,"viewtestresults.html",d)
+
+
+def message(request):
+    if(request.method=="POST"):
+        msg = request.POST['msg']
+
+        pid =request.session['parentID']
+        
+        pt = Parents.objects.get(pid=pid)
+        tp = TeacherParent.objects.get(pid=pid)
+        t = tp.tid.tid
+        print(t)
+        teach = Teacher.objects.get(tid=t)
+
+        print("Parent ID : " , pt.pid)
+        print("Teacher ID : " , teach.tid)
+        Message.objects.create(sender=pt,receiver=teach,content=msg)
+        print(msg)
+
+        return HttpResponse("Success")
+       
+
+        #prntuple = TeacherParent.objects.get(pid=pid)
+    pid =request.session['parentID']
+    mtuple=Message.objects.filter(sender=pid)   
+    print(mtuple)
+    d={"mesg":mtuple}
+
+    return render(request,'message.html',d)
     
 """ class MyView(APIView):
     def get(self, request):
@@ -130,5 +207,3 @@ def updateAttendance(request):
         serializer = MySerializer(data)
         return Response(serializer.data)
  """
- def viewattendance(request):
-    return render(request,'view_attendance.html')
