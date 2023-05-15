@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.deletion import CASCADE, SET_DEFAULT
 from django.utils import timezone
-
 # Create your models here.
 
 
@@ -82,7 +81,7 @@ class Message(models.Model):
     sender = models.ForeignKey(Parents,on_delete=CASCADE)
     receiver = models.ForeignKey(Teacher,on_delete=CASCADE)
     content = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+    msgtime = models.DateTimeField(default=timezone.now)
 
 
 

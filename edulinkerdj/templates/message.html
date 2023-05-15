@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edulinker-Home</title>
-    <!-- <link rel="stylesheet" href="{% static 'homestyle.css' %}"> -->
     <link rel="stylesheet" href="{% static 'message.css' %}">
-    <script src="{% static 'js/message.js' %}"></script>
 
 
 
@@ -31,26 +29,35 @@
             </ul>
         </div>
     </nav>
+
     <form method="post">
         {% csrf_token %}
     <div class="messaging-container">
         <div class="messaging-header">
-          <h2>Chat</h2>
+          <h2>Query Section</h2>
         </div>
         <div class="messaging-body">
-            {% for i in mesg %}
-          <ul class="message-list">
-            <!-- Messages will be dynamically added here -->
-            {{i.content}}
-          </ul>
-          {% endfor %}
+
+        {% for i in mesg %}
+          <div class="message-list">
+            <div class="msg-header">
+            <span>{{ i.sender.parentname }}</span>
+            <span>{{ i.msgtime }}</span>
+            </div>
+            <p>{{ i.content }}</p>
+          </div>
+             {% endfor %}
+
+            </div>
+                  
+
         </div>
         <div class="messaging-footer">
-            
+           
           <input type="text" name="msg" id="message-input" placeholder="Type your message...">
 
           <button id="send-button">Send</button>
-        
+       
         </div>
       </div>
     </form>

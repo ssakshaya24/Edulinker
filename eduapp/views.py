@@ -187,15 +187,14 @@ def message(request):
         Message.objects.create(sender=pt,receiver=teach,content=msg)
         print(msg)
 
-        return HttpResponse("Success")
+        return redirect("message")
        
 
         #prntuple = TeacherParent.objects.get(pid=pid)
     pid =request.session['parentID']
-    mtuple=Message.objects.filter(sender=pid)   
+    mtuple=Message.objects.all()   
     print(mtuple)
     d={"mesg":mtuple}
-
     return render(request,'message.html',d)
     
 """ class MyView(APIView):

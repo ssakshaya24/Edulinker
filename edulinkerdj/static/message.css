@@ -35,50 +35,6 @@ ul li:hover::after{
     width:100%;
 }
 
-.main {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    height: 88vh;
-}
-.left{
-    display: flex;
-    align-items: center;
-
-
-
-}
-.right{
-    display: flex;
-    align-items: center;
-    
-
-}
-.content {
-    height:50vh;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    padding:1rem;
-}
-.content p{
-    line-height: 2.0;
-}
-
-.btn{
-    display:flex;
-    justify-content: space-between;   
-}
-
-.btn .pbtn , .fbtn
-{
-    background:#612566;
-    color:white;
-    padding:.6rem;
-    margin:1rem;
-    width:150px;
-    border: none;
-    border-radius: 10px;
-}
 .logo
 {
     display: flex;
@@ -91,24 +47,16 @@ ul li:hover::after{
     font-size: 25px;
 }
 
-.teacherimg {
-    display: flex;
-    flex-direction: row; 
-}
-
-.teacherimg img{
-    width:40%;
-    margin: auto;
-}
 .messaging-container {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 75%;
-    height: 500px;
+    height: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background-color:#F2D6EF;
+    background-color:#d8d8d8;
+    overflow: hidden;
   }
   
   .messaging-header {
@@ -123,11 +71,11 @@ ul li:hover::after{
     overflow-y: auto;
   }
   
-  .message-list {
+  /* .message-list {
     list-style-type:none;
     padding: 0;
     margin: 0;
-  }
+  } */
   
   .message-list li {
     margin-bottom: 10px;
@@ -137,6 +85,9 @@ ul li:hover::after{
     padding: 10px;
     display: flex;
     align-items: center;
+    width: 75%;
+    margin: auto;
+
   }
   
   #message-input {
@@ -154,166 +105,39 @@ ul li:hover::after{
     background-color: #D233CB;
     color: #fff;
     cursor: pointer;
+    width: 5%;
   }
   
-
-*{
-    font-family: 'Poppins',sans-serif;
-
+.message-list {
+    border: 1px solid;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 14px 7px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 14px 7px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 14px 7px 5px 0px rgba(0,0,0,0.1);
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    min-width: 90 px;
 }
-body{
-    background-color: #f2d6ef;
+
+.message-list span {
+    color: #165dd7;
+    font-weight: 600;
 }
 
-nav{
+.msg-header {
     display: flex;
     justify-content: space-between;
-    padding-right:10px;
-}
-ul{
-    list-style-type: none;
-    display:flex;
-}
-ul li{
-    padding:15px;
-    cursor:pointer;
-
+    padding-right: 20px;
+    padding-left: 10px;
 }
 
-ul li::after{
-    content: '';
-    width:0%;
-    height:2px;
-    background:#612566;
-    display:block;
-    margin:auto;
-    transition:0.5s;
+#tmsg {
+    background-color: #5fa7c3;
 }
 
-ul li:hover::after{
-    width:100%;
-}
-
-.main {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    height: 88vh;
-}
-.left{
-    display: flex;
-    align-items: center;
-
-
-
-}
-.right{
-    display: flex;
-    align-items: center;
-    
-
-}
-.content {
-    height:50vh;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    padding:1rem;
-}
-.content p{
-    line-height: 2.0;
-}
-
-.btn{
-    display:flex;
-    justify-content: space-between;   
-}
-
-.btn .pbtn , .fbtn
-{
-    background:#612566;
-    color:white;
-    padding:.6rem;
-    margin:1rem;
-    width:150px;
-    border: none;
-    border-radius: 10px;
-}
-.logo
-{
-    display: flex;
-    align-items: center;
-
-}
-
-.logo i {
-    padding: 5px;
-    font-size: 25px;
-}
-
-.teacherimg {
-    display: flex;
-    flex-direction: row; 
-}
-
-.teacherimg img{
-    width:40%;
-    margin: auto;
-}
-.messaging-container {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 75%;
-    height: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    background-color:#F2D6EF;
-  }
-  
-  .messaging-header {
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .messaging-body {
-    padding: 10px;
-    flex-grow: 1;
-    overflow-y: auto;
-  }
-  
-  .message-list {
-    list-style-type:none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .message-list li {
-    margin-bottom: 10px;
-  }
-  
-  .messaging-footer {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  #message-input {
-    flex-grow: 1;
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  #send-button {
-    padding: 5px 10px;
-    margin-left: 10px;
-    border-radius: 4px;
-    border: none;
-    background-color: #D233CB;
+#tmsg span {
     color: #fff;
-    cursor: pointer;
-  }
-  
-
-
+}
